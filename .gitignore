@@ -8,7 +8,6 @@ gradle-app.setting
 **/build/
 gradlew.bat
 gradlew
-gradle/
 local.properties
 
 # Android Studio / IntelliJ IDEA files
