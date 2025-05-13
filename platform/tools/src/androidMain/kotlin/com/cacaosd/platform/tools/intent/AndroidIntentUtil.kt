@@ -10,7 +10,11 @@ import android.provider.Settings
 import android.speech.RecognizerIntent
 import androidx.core.net.toUri
 import com.cacaosd.platform.tools.application_info.api33Safe
-import com.cacaosd.platform.tools.intent.IntentUtil
+import com.cacaosd.platform.tools.config.PlatformConfiguration
+
+actual fun getIntentUtil(config: PlatformConfiguration): IntentUtil {
+    return AndroidIntentUtil(config.context)
+}
 
 class AndroidIntentUtil(private val context: Context) : IntentUtil {
 

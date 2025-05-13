@@ -1,6 +1,9 @@
 package com.cacaosd.platform.tools.intent
 
 import com.cacaosd.platform.tools.activity.PlatformActivity
+import com.cacaosd.platform.tools.config.PlatformConfiguration
+
+expect fun getIntentUtil(config: PlatformConfiguration): IntentUtil
 
 interface IntentUtil {
     fun getOpenInAppIntent(data: String, title: String = ""): PlatformIntent

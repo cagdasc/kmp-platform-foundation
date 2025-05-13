@@ -4,8 +4,6 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.compose.multiplatform)
 }
 
 kotlin {
@@ -18,16 +16,9 @@ kotlin {
     }
 
     sourceSets {
-        androidMain.dependencies {
-            implementation(libs.activity.compose)
-        }
-
         commonMain.dependencies {
-            implementation(compose.ui)
-        }
-
-        jvmMain.dependencies {
-            implementation(compose.desktop.currentOs)
+            implementation(project(":platform:tools"))
+            implementation(libs.koin.core)
         }
     }
 
@@ -38,7 +29,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.cacaosd.platform.tools"
+    namespace = "com.cacaosd.platform.tools.di"
     compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {

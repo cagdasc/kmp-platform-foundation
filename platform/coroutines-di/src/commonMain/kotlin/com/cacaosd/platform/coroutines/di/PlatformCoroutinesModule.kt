@@ -13,7 +13,7 @@ fun KoinApplication.platformCoroutines(): KoinApplication {
     koin.loadModules(
         modules = listOf(
             module {
-                single { _root_ide_package_.com.cacaosd.platform.coroutines.dispatchers.getPlatformDispatchers() } bind PlatformDispatchers::class
+                single { getPlatformDispatchers() } bind PlatformDispatchers::class
                 factory(qualifier = ioScopeQualifier) {
                     val platformDispatchers = get<PlatformDispatchers>()
                     CoroutineScope(platformDispatchers.io + SupervisorJob())
