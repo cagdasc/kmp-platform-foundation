@@ -18,12 +18,20 @@ fun KoinApplication.platformCoroutines(): KoinApplication {
                     val platformDispatchers = get<PlatformDispatchers>()
                     CoroutineScope(platformDispatchers.io + SupervisorJob())
                 }
+                factory(qualifier = mainScopeQualifier) {
+                    val platformDispatchers = get<PlatformDispatchers>()
+                    CoroutineScope(platformDispatchers.main + SupervisorJob())
+                }
             }
         )
     )
     return this
 }
 
-internal object IoScoped
+internal object IoScopeQualifier
 
-val ioScopeQualifier = TypeQualifier(IoScoped::class)
+val ioScopeQualifier = TypeQualifier(IoScopeQualifier::class)
+
+internal object MainScopeQualifier
+
+val mainScopeQualifier = TypeQualifier(MainScopeQualifier::class)
