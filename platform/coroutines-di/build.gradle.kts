@@ -18,7 +18,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(project(":platform:coroutines"))
+                implementation("com.cacaosd.platform:platform:coroutines")
                 implementation(libs.kotlinx.coroutines.core)
                 implementation(libs.koin.core)
             }

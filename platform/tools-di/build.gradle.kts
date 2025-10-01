@@ -17,7 +17,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":platform:tools"))
+            implementation("com.cacaosd.platform:platform:tools")
             implementation(libs.koin.core)
         }
     }
