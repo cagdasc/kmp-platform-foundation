@@ -11,8 +11,8 @@ actual fun getPlatformDispatchers(): PlatformDispatchers = object : PlatformDisp
     override val io: CoroutineDispatcher
         get() = Dispatchers.IO
     override val default: CoroutineDispatcher
-        get() = TODO("Not yet implemented")
+        get() = Dispatchers.Default
     override val unconfined: CoroutineDispatcher
-        get() = TODO("Not yet implemented")
+        get() = Dispatchers.Unconfined
 
 }
