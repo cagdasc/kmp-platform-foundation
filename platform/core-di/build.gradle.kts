@@ -4,11 +4,14 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.multiplatform)
+    id("maven-publish")
 }
 
 kotlin {
     jvm()
     androidTarget {
+        publishLibraryVariants("release")
+
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_21)
@@ -17,7 +20,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":platform:core"))
+            implementation(libs.platform.core)
             implementation(libs.koin.core)
         }
     }
@@ -50,5 +53,22 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
+    }
+}
+
+group = property("GROUP")!!
+version = property("VERSION_NAME")!!
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.cacaosd.platform"
+            artifactId = "core-di"
+            version = "0.0.1"
+
+            afterEvaluate {
+                from(components["kotlin"])
+            }
+        }
     }
 }

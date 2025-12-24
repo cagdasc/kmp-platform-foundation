@@ -28,3 +28,13 @@ include(":platform:coroutines")
 include(":platform:coroutines-di")
 include(":platform:core")
 include(":platform:core-di")
+
+includeBuild(".") {
+    dependencySubstitution {
+        substitute(module("com.cacaosd.platform:coroutines"))
+            .using(project(":platform:coroutines"))
+
+        substitute(module("com.cacaosd.platform:core"))
+            .using(project(":platform:core"))
+    }
+}

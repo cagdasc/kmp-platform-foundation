@@ -4,11 +4,14 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.multiplatform)
+    id("maven-publish")
 }
 
 kotlin {
     jvm()
     androidTarget {
+        publishLibraryVariants("release")
+
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_21)
@@ -18,7 +21,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(project(":platform:coroutines"))
+                implementation(libs.platform.coroutines)
                 implementation(libs.kotlinx.coroutines.core)
                 implementation(libs.koin.core)
             }
@@ -56,3 +59,20 @@ android {
 }
 
 dependencies { }
+
+group = property("GROUP")!!
+version = property("VERSION_NAME")!!
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "com.cacaosd.platform"
+            artifactId = "coroutines-di"
+            version = "0.0.1"
+
+            afterEvaluate {
+                from(components["kotlin"])
+            }
+        }
+    }
+}
