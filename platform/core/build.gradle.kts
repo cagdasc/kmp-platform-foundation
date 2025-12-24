@@ -6,12 +6,21 @@ plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.compose.multiplatform)
+    id("maven-publish")
 }
 
 kotlin {
-    jvm()
+    jvmToolchain(21)
     androidTarget {
+        publishLibraryVariants("release")
+
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_21)
+        }
+    }
+
+    jvm {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_21)
         }
@@ -59,5 +68,19 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = project.group.toString()
+            artifactId = "core"
+            version = project.version.toString()
+
+            afterEvaluate {
+                from(components["kotlin"])
+            }
+        }
     }
 }

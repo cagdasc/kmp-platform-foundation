@@ -4,12 +4,21 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.multiplatform)
+    id("maven-publish")
 }
 
 kotlin {
-    jvm()
+    jvmToolchain(21)
     androidTarget {
+        publishLibraryVariants("release")
+
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_21)
+        }
+    }
+
+    jvm {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_21)
         }
@@ -65,3 +74,17 @@ android {
 }
 
 dependencies { }
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = project.group.toString()
+            artifactId = "coroutines"
+            version = project.version.toString()
+
+            afterEvaluate {
+                from(components["kotlin"])
+            }
+        }
+    }
+}

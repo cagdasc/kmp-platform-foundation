@@ -28,3 +28,13 @@ include(":platform:coroutines")
 include(":platform:coroutines-di")
 include(":platform:core")
 include(":platform:core-di")
+
+includeBuild(".") {
+    dependencySubstitution {
+        substitute(module("com.github.cagdasc:coroutines"))
+            .using(project(":platform:coroutines"))
+
+        substitute(module("com.github.cagdasc:core"))
+            .using(project(":platform:core"))
+    }
+}

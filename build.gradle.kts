@@ -9,3 +9,8 @@ plugins {
     alias(libs.plugins.kotlin.ksp) apply false
     alias(libs.plugins.kotlin.multiplatform) apply false
 }
+
+allprojects {
+    group = "com.github.cagdasc"
+    version = "0.0.1"
+}
