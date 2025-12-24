@@ -7,57 +7,19 @@
 kotlin = "2.1.21"
 ksp-version = "2.1.21-2.0.1"
 agp = "8.11.1"
-gms = "4.4.2"
 
 # Android SDK Versions
 compileSdk = "35"
 minSdk = "23"
-targetSdk = "35"
 
 # AndroidX Libraries
-androidx-core-ktx = "1.16.0"
-androidx-startup = "1.2.0"
-androidx-work-runtime = "2.10.1"
-androidx-data-store = "1.1.7"
-appcompat = "1.7.0"
 activity-compose = "1.10.1"
 
 # Compose
 compose-multiplatform = "1.8.1"
-compose-bom-version = "2025.05.01"
-accompanist-version = "0.36.0"
-ui-tooling-preview-android-version = "1.8.2"
-
-# Lifecycle Components
-lifecycle-jetbrains-version = "2.8.4"
-lifecycle-version = "2.9.0"
-
-# Navigation
-navigation-compose-version = "2.9.0-beta01"
-navigation-compose = "2.9.0"
-
-# Room and SQLite
-room-version = "2.7.1"
-sqlite-version = "2.5.1"
 
 # Dependency Injection
-hilt-version = "2.56"
-hilt-common = "1.2.0"
 koin = "4.0.2"
-javax-inject = "1"
-
-# Firebase
-firebase-bom = "33.14.0"
-crashlytics-gradle = "3.0.3"
-
-# Networking
-okhttp-version = "4.12.0"
-retrofit-version = "2.9.0"
-ktor-version = "3.0.3"
-
-# JSON and Serialization
-moshi = "1.15.1"
-kotlinx-serialization = "1.8.0"
 
 # Coroutines
 kotlinx-coroutines-core = "1.10.2"
@@ -65,39 +27,6 @@ kotlinx-coroutines-android = "1.10.2"
 kotlinx-coroutines-jvm = "1.10.2"
 kotlinx-coroutines-slf4j-version = "1.10.2"
 kotlinx-coroutines-swing-version = "1.10.2"
-kotlinx-coroutines-test = "1.10.2"
-
-# Date/Time and Utils
-kotlinx-datetime-version = "0.6.2"
-guava-version = "33.4.8-android"
-kotlin-logging-jvm-version = "7.0.3"
-logback-classic-version = "1.5.18"
-
-# Web/HTML Parsing
-ksoup-kotlinx-version = "0.2.2"
-
-# Image Loading
-coil-compose-version = "3.1.0"
-
-# Material Design
-google-material = "1.12.0"
-
-# Misc
-paper-db = "2.7.2"
-desugaring = "2.1.5"
-dependency-refresh = "0.51.0"
-timber-version = "5.0.1"
-buildconfig = "5.6.5"
-
-# Testing
-junit = "4.13.2"
-truth = "1.6.0"
-mockk = "1.13.1"
-core-testing = "2.2.0"
-turbine = "0.8.0"
-test-runner = "1.6.2"
-test-junit = "1.2.1"
-espresso-core = "3.6.1"
 
 # ======================================
 # GRADLE PLUGINS
@@ -114,21 +43,7 @@ kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp-version" }
 compose-multiplatform = { id = "org.jetbrains.compose", version.ref = "compose-multiplatform" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
-kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 
-# Database
-androidx-room = { id = "androidx.room", version.ref = "room-version" }
-
-# Dependency Injection
-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt-version" }
-
-# Firebase
-google-services = { id = "com.google.gms.google-services", version.ref = "gms" }
-firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "crashlytics-gradle" }
-
-# Utilities
-gradle-versions-plugin = { id = "com.github.ben-manes.versions", version.ref = "dependency-refresh" }
-buildconfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildconfig" }
 
 # ======================================
 # LIBRARY DEPENDENCIES
@@ -136,8 +51,8 @@ buildconfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildconfig
 
 [libraries]
 # Project
-platform-coroutines = { module = "com.cacaosd.platform:coroutines", version = "0.0.1" }
-platform-core = { module = "com.cacaosd.platform:core", version = "0.0.1" }
+platform-coroutines = { module = "com.github.cagdasc:coroutines", version = "0.0.1" }
+platform-core = { module = "com.github.cagdasc:core", version = "0.0.1" }
 
 # ---- Compose ----
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
@@ -148,6 +63,4 @@ koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 # ---- Coroutines ----
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines-core" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx-coroutines-android" }
-kotlinx-coroutines-jvm = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core-jvm", version.ref = "kotlinx-coroutines-jvm" }
-kotlinx-coroutines-slf4j = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-slf4j", version.ref = "kotlinx-coroutines-slf4j-version" }
 kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines-swing-version" }

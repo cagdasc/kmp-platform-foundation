@@ -31,10 +31,10 @@ include(":platform:core-di")
 
 includeBuild(".") {
     dependencySubstitution {
-        substitute(module("com.cacaosd.platform:coroutines"))
+        substitute(module("com.github.cagdasc:coroutines"))
             .using(project(":platform:coroutines"))
 
-        substitute(module("com.cacaosd.platform:core"))
+        substitute(module("com.github.cagdasc:core"))
             .using(project(":platform:core"))
     }
 }

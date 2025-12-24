@@ -66,15 +66,12 @@ android {
 
 dependencies { }
 
-group = property("GROUP")!!
-version = property("VERSION_NAME")!!
-
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            groupId = "com.cacaosd.platform"
+            groupId = project.group.toString()
             artifactId = "coroutines-di"
-            version = "0.0.1"
+            version = project.version.toString()
 
             afterEvaluate {
                 from(components["kotlin"])
