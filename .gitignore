@@ -6,8 +6,8 @@ gradle-app.setting
 !gradle-wrapper.properties
 .gradletasknamecache
 **/build/
-gradlew.bat
-gradlew
+# gradlew.bat
+# gradlew
 local.properties
 
 # Android Studio / IntelliJ IDEA files
