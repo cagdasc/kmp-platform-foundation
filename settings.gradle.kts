@@ -23,18 +23,18 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "platform-shared"
-include(":platform:coroutines")
-include(":platform:coroutines-di")
-include(":platform:core")
-include(":platform:core-di")
+rootProject.name = "kmp-foundation"
+include(":coroutines")
+include(":coroutines-di")
+include(":core")
+include(":core-di")
 
 includeBuild(".") {
     dependencySubstitution {
         substitute(module("com.github.cagdasc:coroutines"))
-            .using(project(":platform:coroutines"))
+            .using(project(":coroutines"))
 
         substitute(module("com.github.cagdasc:core"))
-            .using(project(":platform:core"))
+            .using(project(":core"))
     }
 }
