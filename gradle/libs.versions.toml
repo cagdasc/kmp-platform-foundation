@@ -21,6 +21,8 @@ compose-multiplatform = "1.8.1"
 # Dependency Injection
 koin = "4.0.2"
 
+local-project-version = "0.1.0"
+
 # Coroutines
 kotlinx-coroutines-core = "1.10.2"
 kotlinx-coroutines-android = "1.10.2"
@@ -51,8 +53,8 @@ kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref 
 
 [libraries]
 # Project
-platform-coroutines = { module = "com.github.cagdasc:coroutines", version = "0.0.1" }
-platform-core = { module = "com.github.cagdasc:core", version = "0.0.1" }
+platform-coroutines = { module = "com.github.cagdasc.kmp-platform-foundation:coroutines", version.ref = "local-project-version" }
+platform-core = { module = "com.github.cagdasc.kmp-platform-foundation:core", version.ref = "local-project-version" }
 
 # ---- Compose ----
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
