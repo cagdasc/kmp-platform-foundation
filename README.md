@@ -1,4 +1,4 @@
-# KMP Platform Foundation
+# KMP Platform Foundation [![](https://jitpack.io/v/cagdasc/kmp-platform-foundation.svg)](https://jitpack.io/#cagdasc/kmp-platform-foundation)
 
 ![Kotlin multiplatform](https://img.shields.io/badge/Kotlin-Multiplatform-blueviolet?style=for-the-badge)
 ![Android](https://img.shields.io/badge/Android-supported-brightgreen?style=for-the-badge)
