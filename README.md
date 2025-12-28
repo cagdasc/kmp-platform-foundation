@@ -1,15 +1,87 @@
-# Multiplatform Platform Shared
+# KMP Platform Foundation
 
-[![](https://jitpack.io/v/cagdasc/multiplatform-shared.svg)](https://jitpack.io/#cagdasc/multiplatform-shared)
+![Kotlin multiplatform](https://img.shields.io/badge/Kotlin-Multiplatform-blueviolet?style=for-the-badge)
+![Android](https://img.shields.io/badge/Android-supported-brightgreen?style=for-the-badge)
+![JVM](https://img.shields.io/badge/JVM-supported-brightgreen?style=for-the-badge)
 
-Multiplatform Shared is a comprehensive library for building cross-platform applications. It provides a wide range of
-shared utilities that can be easily integrated into your projects, whether you're developing for web, mobile, or desktop
-platforms.
+A Kotlin Multiplatform (KMP) **foundation library** that provides reusable building blocks for **platform abstractions
+**, **coroutines**, and **dependency injection**.
 
-## Purpose
+This repository intentionally contains **no UI modules**. UI-related concerns (themes, design system, components) are
+expected to live in a **separate project**.
 
-This library was created to be a single, shared source of truth for common logic across multiple projects. The primary
-goal is to follow the "Don't Repeat Yourself" (DRY) principle. By centralizing our shared code, we can:
+The goal of this project is to act as a **stable base layer** shared across multiple applications and higher-level
+libraries.
+
+---
+
+## Modules Overview
+
+### `core`
+
+Platform abstractions and shared utilities that require platform-specific implementations.
+
+**Responsibilities**:
+
+* Expose platform concepts such as Activity, application info, permissions, intents, and configuration
+* Provide clean, testable APIs that hide platform details from consumers
+* Centralize platform-specific code outside of feature modules
+
+---
+
+### `core-di`
+
+Dependency Injection bindings for platform-level abstractions.
+
+**Responsibilities**:
+
+* Provide DI modules for `core`
+* Keep DI setup isolated from business logic and feature modules
+* Avoid leaking DI framework details to consumers
+
+This module depends on `core` and exposes only DI-related wiring.
+
+---
+
+### `coroutines`
+
+Shared coroutine utilities and platform-aware dispatcher definitions.
+
+**Responsibilities**:
+
+* Define consistent coroutine dispatchers per platform
+* Provide commonly used coroutine extensions
+* Remove dispatcher configuration duplication across projects
+
+---
+
+### `coroutines-di`
+
+Dependency Injection bindings for coroutine-related components.
+
+**Responsibilities**:
+
+* Provide DI modules for coroutine dispatchers and related utilities
+* Centralize coroutine wiring for consistency across applications
+
+This module depends on `coroutines`.
+
+---
+
+## Module Usage
+
+Each module is published independently and can be consumed selectively.
+
+```kotlin
+dependencies {
+    implementation("com.github.cagdasc.kmp-platform-foundation:core:<version>")
+    implementation("com.github.cagdasc.kmp-platform-foundation:coroutines:<version>")
+
+    // Optional
+    implementation("com.github.cagdasc.kmp-platform-foundation:core-di:<version>")
+    implementation("com.github.cagdasc.kmp-platform-foundation:coroutines-di:<version>")
+}
+```
 
 ## License
 
