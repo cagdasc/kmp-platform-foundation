@@ -23,7 +23,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "kmp-foundation"
+rootProject.name = "kmp-platform-foundation"
 include(":coroutines")
 include(":coroutines-di")
 include(":core")
