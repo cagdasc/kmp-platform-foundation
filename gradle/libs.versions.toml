@@ -24,11 +24,11 @@ koin = "4.0.2"
 local-project-version = "0.1.0"
 
 # Coroutines
-kotlinx-coroutines-core = "1.10.2"
-kotlinx-coroutines-android = "1.10.2"
+kotlinx-coroutines-core = "1.11.0"
+kotlinx-coroutines-android = "1.11.0"
 kotlinx-coroutines-jvm = "1.10.2"
 kotlinx-coroutines-slf4j-version = "1.10.2"
-kotlinx-coroutines-swing-version = "1.10.2"
+kotlinx-coroutines-swing-version = "1.11.0"
 
 # ======================================
 # GRADLE PLUGINS
