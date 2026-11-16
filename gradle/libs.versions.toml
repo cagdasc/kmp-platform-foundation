@@ -19,7 +19,7 @@ activity-compose = "1.10.1"
 compose-multiplatform = "1.8.1"
 
 # Dependency Injection
-koin = "4.0.2"
+koin = "4.2.2"
 
 local-project-version = "0.1.0"
 
