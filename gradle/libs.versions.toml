@@ -6,7 +6,7 @@
 # Core Android and Kotlin
 kotlin = "2.1.21"
 ksp-version = "2.1.21-2.0.1"
-agp = "8.11.1"
+agp = "9.5.2"
 
 # Android SDK Versions
 compileSdk = "35"
